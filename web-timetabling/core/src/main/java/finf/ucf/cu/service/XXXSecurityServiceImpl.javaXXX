@@ -1,0 +1,36 @@
+// license-header java merge-point
+/**
+ * This is only generated once! It will never be overwritten.
+ * You can (and have to!) safely modify it by hand.
+ */
+package finf.ucf.cu.service;
+
+import finf.ucf.cu.domain.User;
+import finf.ucf.cu.vo.UserDetailsVO;
+
+
+/**
+ * @see finf.ucf.cu.service.SecurityService
+ */
+public class SecurityServiceImpl
+    extends finf.ucf.cu.service.SecurityServiceBase
+{
+
+    /**
+     * @see finf.ucf.cu.service.SecurityService#getUserDetails(java.lang.String)
+     */
+    protected  finf.ucf.cu.vo.UserDetailsVO handleGetUserDetails(java.lang.String username)
+        throws java.lang.Exception
+    {
+    //  UserDetailsVO userDetailsVO = null;
+      //User user = getUserDao().getUserDetails(username);
+        //if (user != null)
+        //{
+          //  userDetailsVO = getUserDao().toUserDetailsVO(user);
+        //}
+        //return userDetailsVO;
+	 return null;
+
+    }
+
+}

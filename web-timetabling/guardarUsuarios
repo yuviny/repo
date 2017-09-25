@@ -1,0 +1,41 @@
+﻿-- Password is 'cooldude' encoded using MD5
+insert into xuser
+    (ID, USERNAME, PASSWORD, FIRST_NAME, LAST_NAME,
+     EMAIL, IS_ACTIVE, CREATION_DATE )
+    values (1, 'yuviny',      '756slLjeNViurJBGI5JeqA==', 'Yuviny', 'Echevarria',
+            '
+ yechevarria@ucf.edu.cu
+ ',      true, '2006/01/01 09:00'  );
+insert into xuser
+    (ID, USERNAME, PASSWORD, FIRST_NAME, LAST_NAME,
+     EMAIL, IS_ACTIVE, CREATION_DATE )
+    values (2, 'lcoude',       '756slLjeNViurJBGI5JeqA==', 'Louis',  'Coude',
+            '
+ lcoude@northwind.comThis e-mail address is being protected from spam bots, you need JavaScript enabled to view it
+ ',       true, '2006/01/01 09:00'  );
+insert into xuser
+    (ID, USERNAME, PASSWORD, FIRST_NAME, LAST_NAME,
+     EMAIL, IS_ACTIVE, CREATION_DATE )
+    values (3, 'ecrutchfield', '756slLjeNViurJBGI5JeqA==', 'Eric',   'Crutchfield',
+            '
+ ecrutchfield@northwind.comThis e-mail address is being protected from spam bots, you need JavaScript enabled to view it
+ ', true, '2006/01/01 09:00'  );
+insert into xuser
+    (ID, USERNAME, PASSWORD, FIRST_NAME, LAST_NAME,
+     EMAIL, IS_ACTIVE, CREATION_DATE )
+    values (4, 'cmicali',      '756slLjeNViurJBGI5JeqA==', 'Chris',  'Micali',
+            '
+ cmicali@northwind.comThis e-mail address is being protected from spam bots, you need JavaScript enabled to view it
+ ',      true, '2006/01/01 09:00'  );
+
+insert into USER_ROLE (ID, ROLE, USER_FK)
+    values (1, 'StandardUser',  1);
+insert into USER_ROLE (ID, ROLE, USER_FK)
+    values (2, 'Administrator', 1);
+insert into USER_ROLE (ID, ROLE, USER_FK)
+    values (3, 'StandardUser',  2);
+insert into USER_ROLE (ID, ROLE, USER_FK)
+    values (4, 'StandardUser',  3);
+insert into USER_ROLE (ID, ROLE, USER_FK)
+    values (5, 'StandardUser',  4);
+

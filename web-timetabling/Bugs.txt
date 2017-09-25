@@ -1,0 +1,13 @@
+Bugs del sistema							Acciones
+
+1- Problemas con la codificacion de los caracteres en los CRUD.		Buscar en el foro de debate	
+
+2- Cuando se busca el horario de un recurso que no tenga clases planificada hay que personalizar la excepcion
+
+3- Editar el hint de los formulario en las filas de las tablas CRUD
+
+4- Pasar el acceso a los horarios para el menu superior
+
+5- Ayuda de los campos semana en los horarios de grupos, profesores y locales
+
+6- errores ortograficos en las ayudas de los CRUD y en el inicio

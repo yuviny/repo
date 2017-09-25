@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+    <!-- display-name merge point -->
+
+    <!-- description merge point -->
+
+    <data-sources>
+        <!-- data-sources merge point -->
+    </data-sources>
+
+    <form-beans>
+        <!-- form-beans merge-point -->
+        <form-bean
+            name="groupScheduleGroupScheduleBuscarForm"
+            type="finf.ucf.cu.web.groupschedule.GroupScheduleBuscarFormImpl" />
+        <form-bean
+            name="groupScheduleGroupScheduleForm"
+            type="finf.ucf.cu.web.groupschedule.GroupScheduleFormImpl" />
+        <form-bean
+            name="teacherScheduleTeacherScheduleBuscarForm"
+            type="finf.ucf.cu.web.teacherSchedule.TeacherScheduleBuscarFormImpl" />
+        <form-bean
+            name="teacherScheduleTeacherScheduleForm"
+            type="finf.ucf.cu.web.teacherSchedule.TeacherScheduleFormImpl" />
+        <form-bean
+            name="roomScheduleRoomScheduleBuscarForm"
+            type="finf.ucf.cu.web.roomschedule.RoomScheduleBuscarFormImpl" />
+        <form-bean
+            name="roomScheduleRoomScheduleForm"
+            type="finf.ucf.cu.web.roomschedule.RoomScheduleFormImpl" />
+        <form-bean name="manageTeacherForm" type="finf.ucf.cu.domain.crud.TeacherForm" />
+        <form-bean name="manageGroupForm" type="finf.ucf.cu.domain.crud.GroupForm" />
+        <form-bean name="manageSubjectForm" type="finf.ucf.cu.domain.crud.SubjectForm" />
+        <form-bean name="manageClassTimeForm" type="finf.ucf.cu.domain.crud.ClassTimeForm" />
+        <form-bean name="manageRoomForm" type="finf.ucf.cu.domain.crud.RoomForm" />
+        <form-bean name="manageSemesterForm" type="finf.ucf.cu.domain.crud.SemesterForm" />
+        <form-bean name="manageClassTypeForm" type="finf.ucf.cu.domain.crud.ClassTypeForm" />
+        <form-bean name="manageResourceForm" type="finf.ucf.cu.domain.crud.ResourceForm" />
+        <form-bean name="manageBuildingForm" type="finf.ucf.cu.domain.crud.BuildingForm" />
+        <form-bean name="manageNotAvalabilityForm" type="finf.ucf.cu.domain.crud.NotAvalabilityForm" />
+        <form-bean name="manageP1Form" type="finf.ucf.cu.domain.crud.P1Form" />
+        <form-bean name="manageActivityForm" type="finf.ucf.cu.domain.crud.ActivityForm" />
+        <form-bean name="manageImpartitionPlanForm" type="finf.ucf.cu.domain.crud.ImpartitionPlanForm" />
+        <form-bean name="manageDepartmentForm" type="finf.ucf.cu.domain.crud.DepartmentForm" />
+        <form-bean name="manageThemeForm" type="finf.ucf.cu.domain.crud.ThemeForm" />
+    </form-beans>
+
+    <global-exceptions>
+        <!-- global-exceptions merge point -->
+        <exception
+            handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+            type="java.lang.Throwable"
+            key="error.exception.message"
+            path="/error-page.jsp?code=exception&amp;exception=true"
+            scope="request" />
+    </global-exceptions>
+
+    <global-forwards>
+        
+        <forward
+            name="group.schedule"
+            path="/GroupSchedule/GroupSchedule.do"
+            redirect="false" />
+        <forward
+            name="planner"
+            path="/Planner/Planner.do"
+            redirect="false" />
+        <forward
+            name="teacher.schedule"
+            path="/TeacherSchedule/TeacherSchedule.do"
+            redirect="false" />
+        <forward
+            name="room.schedule"
+            path="/RoomSchedule/RoomSchedule.do"
+            redirect="false" />
+        <forward
+            name="home"
+            path="/Home/Home.do"
+            redirect="false" />
+        <forward
+            name="make.p1"
+            path="/MakeP1/MakeP1.do"
+            redirect="false" />
+    </global-forwards>
+
+    <action-mappings>
+        <!-- action-mappings merge-point -->
+        <action
+            path="/GroupSchedule/GroupScheduleBuscar"
+            type="finf.ucf.cu.web.groupschedule.GroupScheduleBuscar"
+            name="groupScheduleGroupScheduleBuscarForm"
+            scope="request"
+            input="/finf/ucf/cu/web/groupschedule/group-schedule.jsp"
+            unknown="false"
+            validate="true">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Exception"
+                key="group.schedule.group.schedule.buscar.exception"
+                path="/finf/ucf/cu/web/groupschedule/group-schedule.jsp"
+                scope="request" />
+            <forward
+                name="gschedule"
+                path="/finf/ucf/cu/web/groupschedule/group-schedule.jsp"
+                redirect="false" />
+        </action>
+        <action
+            path="/GroupSchedule/GroupSchedule"
+            type="finf.ucf.cu.web.groupschedule.GroupSchedule"
+            name="groupScheduleGroupScheduleForm"
+            scope="request"
+            unknown="false"
+            validate="false">
+            <forward
+                name="gschedule"
+                path="/finf/ucf/cu/web/groupschedule/group-schedule.jsp"
+                redirect="false" />
+        </action>
+        <action
+            path="/finf/ucf/cu/web/groupschedule/GroupScheduleHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/finf/ucf/cu/web/groupschedule/Group-Schedule_help.jsp"/>
+        <action
+            path="/finf/ucf/cu/web/groupschedule/GroupScheduleHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/finf/ucf/cu/web/groupschedule/group-schedule_help.jsp"/>
+        <action
+            path="/Planner/Planner"
+            type="finf.ucf.cu.web.planner.Planner"
+            scope="request"
+            unknown="false"
+            validate="false">
+            <forward
+                name="planner"
+                path="/finf/ucf/cu/web/planner/planner.jsp"
+                redirect="false" />
+        </action>
+        <action
+            path="/finf/ucf/cu/web/planner/PlannerHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/finf/ucf/cu/web/planner/Planner_help.jsp"/>
+        <action
+            path="/finf/ucf/cu/web/planner/PlannerHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/finf/ucf/cu/web/planner/planner_help.jsp"/>
+        <action
+            path="/TeacherSchedule/TeacherScheduleBuscar"
+            type="finf.ucf.cu.web.teacherSchedule.TeacherScheduleBuscar"
+            name="teacherScheduleTeacherScheduleBuscarForm"
+            scope="request"
+            input="/finf/ucf/cu/web/teacherSchedule/teacher-schedule.jsp"
+            unknown="false"
+            validate="true">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Exception"
+                key="teacher.schedule.teacher.schedule.buscar.exception"
+                path="/finf/ucf/cu/web/teacherSchedule/teacher-schedule.jsp"
+                scope="request" />
+            <forward
+                name="algo"
+                path="/finf/ucf/cu/web/teacherSchedule/teacher-schedule.jsp"
+                redirect="false" />
+        </action>
+        <action
+            path="/TeacherSchedule/TeacherSchedule"
+            type="finf.ucf.cu.web.teacherSchedule.TeacherSchedule"
+            name="teacherScheduleTeacherScheduleForm"
+            scope="request"
+            unknown="false"
+            validate="false">
+            <forward
+                name="algo"
+                path="/finf/ucf/cu/web/teacherSchedule/teacher-schedule.jsp"
+                redirect="false" />
+        </action>
+        <action
+            path="/finf/ucf/cu/web/teacherSchedule/TeacherScheduleHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/finf/ucf/cu/web/teacherSchedule/Teacher-Schedule_help.jsp"/>
+        <action
+            path="/finf/ucf/cu/web/teacherSchedule/TeacherScheduleHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/finf/ucf/cu/web/teacherSchedule/teacher-schedule_help.jsp"/>
+        <action
+            path="/RoomSchedule/RoomScheduleBuscar"
+            type="finf.ucf.cu.web.roomschedule.RoomScheduleBuscar"
+            name="roomScheduleRoomScheduleBuscarForm"
+            scope="request"
+            input="/finf/ucf/cu/web/roomschedule/room-schedule.jsp"
+            unknown="false"
+            validate="true">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Exception"
+                key="room.schedule.room.schedule.buscar.exception"
+                path="/finf/ucf/cu/web/roomschedule/room-schedule.jsp"
+                scope="request" />
+            <forward
+                name="algo"
+                path="/finf/ucf/cu/web/roomschedule/room-schedule.jsp"
+                redirect="false" />
+        </action>
+        <action
+            path="/RoomSchedule/RoomSchedule"
+            type="finf.ucf.cu.web.roomschedule.RoomSchedule"
+            name="roomScheduleRoomScheduleForm"
+            scope="request"
+            unknown="false"
+            validate="false">
+            <forward
+                name="algo"
+                path="/finf/ucf/cu/web/roomschedule/room-schedule.jsp"
+                redirect="false" />
+        </action>
+        <action
+            path="/finf/ucf/cu/web/roomschedule/RoomScheduleHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/finf/ucf/cu/web/roomschedule/Room-Schedule_help.jsp"/>
+        <action
+            path="/finf/ucf/cu/web/roomschedule/RoomScheduleHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/finf/ucf/cu/web/roomschedule/room-schedule_help.jsp"/>
+        <action
+            path="/Home/Home"
+            type="finf.ucf.cu.web.home.Home"
+            scope="request"
+            unknown="false"
+            validate="false">
+            <forward
+                name="home"
+                path="/finf/ucf/cu/web/home/home.jsp"
+                redirect="false" />
+        </action>
+        <action
+            path="/finf/ucf/cu/web/home/HomeHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/finf/ucf/cu/web/home/Home_help.jsp"/>
+        <action
+            path="/finf/ucf/cu/web/home/HomeHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/finf/ucf/cu/web/home/home_help.jsp"/>
+        <action
+            path="/MakeP1/MakeP1"
+            type="finf.ucf.cu.web.makep1.MakeP1"
+            scope="request"
+            unknown="false"
+            validate="false">
+            <forward
+                name="load"
+                path="/finf/ucf/cu/web/makep1/load.jsp"
+                redirect="false" />
+        </action>
+        <action
+            path="/finf/ucf/cu/web/makep1/MakeP1Help"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/finf/ucf/cu/web/makep1/Make-P1_help.jsp"/>
+        <action
+            path="/finf/ucf/cu/web/makep1/ChoiceSubjectAndSemesterHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/finf/ucf/cu/web/makep1/choice-subject-and-semester_help.jsp"/>
+        <action
+            path="/finf/ucf/cu/web/makep1/ShowP1Help"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/finf/ucf/cu/web/makep1/show-p1_help.jsp"/>
+        <action
+            path="/finf/ucf/cu/web/makep1/LoadHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/finf/ucf/cu/web/makep1/load_help.jsp"/>
+        <action
+            path="/Teacher/Manage"
+            type="finf.ucf.cu.domain.crud.ManageTeacher"
+            name="manageTeacherForm"
+            scope="request"
+            input="/finf/ucf/cu/domain/crud/teacher-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="teacher.exception"
+                path="/finf/ucf/cu/domain/crud/teacher-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/Teacher/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/Teacher/Manage.do"
+            parameter="/finf/ucf/cu/domain/crud/teacher_help.jsp"/>
+        <action
+            path="/Group/Manage"
+            type="finf.ucf.cu.domain.crud.ManageGroup"
+            name="manageGroupForm"
+            scope="request"
+            input="/finf/ucf/cu/domain/crud/group-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="group.exception"
+                path="/finf/ucf/cu/domain/crud/group-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/Group/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/Group/Manage.do"
+            parameter="/finf/ucf/cu/domain/crud/group_help.jsp"/>
+        <action
+            path="/Subject/Manage"
+            type="finf.ucf.cu.domain.crud.ManageSubject"
+            name="manageSubjectForm"
+            scope="request"
+            input="/finf/ucf/cu/domain/crud/subject-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="subject.exception"
+                path="/finf/ucf/cu/domain/crud/subject-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/Subject/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/Subject/Manage.do"
+            parameter="/finf/ucf/cu/domain/crud/subject_help.jsp"/>
+        <action
+            path="/ClassTime/Manage"
+            type="finf.ucf.cu.domain.crud.ManageClassTime"
+            name="manageClassTimeForm"
+            scope="request"
+            input="/finf/ucf/cu/domain/crud/classtime-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="class.time.exception"
+                path="/finf/ucf/cu/domain/crud/classtime-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/ClassTime/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/ClassTime/Manage.do"
+            parameter="/finf/ucf/cu/domain/crud/classtime_help.jsp"/>
+        <action
+            path="/Room/Manage"
+            type="finf.ucf.cu.domain.crud.ManageRoom"
+            name="manageRoomForm"
+            scope="request"
+            input="/finf/ucf/cu/domain/crud/room-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="room.exception"
+                path="/finf/ucf/cu/domain/crud/room-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/Room/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/Room/Manage.do"
+            parameter="/finf/ucf/cu/domain/crud/room_help.jsp"/>
+        <action
+            path="/Semester/Manage"
+            type="finf.ucf.cu.domain.crud.ManageSemester"
+            name="manageSemesterForm"
+            scope="request"
+            input="/finf/ucf/cu/domain/crud/semester-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="semester.exception"
+                path="/finf/ucf/cu/domain/crud/semester-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/Semester/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/Semester/Manage.do"
+            parameter="/finf/ucf/cu/domain/crud/semester_help.jsp"/>
+        <action
+            path="/ClassType/Manage"
+            type="finf.ucf.cu.domain.crud.ManageClassType"
+            name="manageClassTypeForm"
+            scope="request"
+            input="/finf/ucf/cu/domain/crud/classtype-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="class.type.exception"
+                path="/finf/ucf/cu/domain/crud/classtype-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/ClassType/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/ClassType/Manage.do"
+            parameter="/finf/ucf/cu/domain/crud/classtype_help.jsp"/>
+        <action
+            path="/Resource/Manage"
+            type="finf.ucf.cu.domain.crud.ManageResource"
+            name="manageResourceForm"
+            scope="request"
+            input="/finf/ucf/cu/domain/crud/resource-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="resource.exception"
+                path="/finf/ucf/cu/domain/crud/resource-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/Resource/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/Resource/Manage.do"
+            parameter="/finf/ucf/cu/domain/crud/resource_help.jsp"/>
+        <action
+            path="/Building/Manage"
+            type="finf.ucf.cu.domain.crud.ManageBuilding"
+            name="manageBuildingForm"
+            scope="request"
+            input="/finf/ucf/cu/domain/crud/building-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="building.exception"
+                path="/finf/ucf/cu/domain/crud/building-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/Building/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/Building/Manage.do"
+            parameter="/finf/ucf/cu/domain/crud/building_help.jsp"/>
+        <action
+            path="/NotAvalability/Manage"
+            type="finf.ucf.cu.domain.crud.ManageNotAvalability"
+            name="manageNotAvalabilityForm"
+            scope="request"
+            input="/finf/ucf/cu/domain/crud/notavalability-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="not.avalability.exception"
+                path="/finf/ucf/cu/domain/crud/notavalability-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/NotAvalability/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/NotAvalability/Manage.do"
+            parameter="/finf/ucf/cu/domain/crud/notavalability_help.jsp"/>
+        <action
+            path="/P1/Manage"
+            type="finf.ucf.cu.domain.crud.ManageP1"
+            name="manageP1Form"
+            scope="request"
+            input="/finf/ucf/cu/domain/crud/p1-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="p1.exception"
+                path="/finf/ucf/cu/domain/crud/p1-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/P1/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/P1/Manage.do"
+            parameter="/finf/ucf/cu/domain/crud/p1_help.jsp"/>
+        <action
+            path="/Activity/Manage"
+            type="finf.ucf.cu.domain.crud.ManageActivity"
+            name="manageActivityForm"
+            scope="request"
+            input="/finf/ucf/cu/domain/crud/activity-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="activity.exception"
+                path="/finf/ucf/cu/domain/crud/activity-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/Activity/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/Activity/Manage.do"
+            parameter="/finf/ucf/cu/domain/crud/activity_help.jsp"/>
+        <action
+            path="/ImpartitionPlan/Manage"
+            type="finf.ucf.cu.domain.crud.ManageImpartitionPlan"
+            name="manageImpartitionPlanForm"
+            scope="request"
+            input="/finf/ucf/cu/domain/crud/impartitionplan-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="impartition.plan.exception"
+                path="/finf/ucf/cu/domain/crud/impartitionplan-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/ImpartitionPlan/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/ImpartitionPlan/Manage.do"
+            parameter="/finf/ucf/cu/domain/crud/impartitionplan_help.jsp"/>
+        <action
+            path="/Department/Manage"
+            type="finf.ucf.cu.domain.crud.ManageDepartment"
+            name="manageDepartmentForm"
+            scope="request"
+            input="/finf/ucf/cu/domain/crud/department-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="department.exception"
+                path="/finf/ucf/cu/domain/crud/department-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/Department/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/Department/Manage.do"
+            parameter="/finf/ucf/cu/domain/crud/department_help.jsp"/>
+        <action
+            path="/Theme/Manage"
+            type="finf.ucf.cu.domain.crud.ManageTheme"
+            name="manageThemeForm"
+            scope="request"
+            input="/finf/ucf/cu/domain/crud/theme-crud.jsp"
+            unknown="false"
+            validate="false"
+            parameter="crud">
+            <exception
+                handler="org.andromda.presentation.bpm4struts.PatternMatchingExceptionHandler"
+                type="java.lang.Throwable"
+                key="theme.exception"
+                path="/finf/ucf/cu/domain/crud/theme-crud.jsp"
+                scope="request" />
+        </action>
+        <action
+            path="/Theme/ManageHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            input="/Theme/Manage.do"
+            parameter="/finf/ucf/cu/domain/crud/theme_help.jsp"/>
+        <action
+            path="/applicationHelp"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/application-help.jsp"/>
+        <action
+            path="/calendar"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/calendar-js.jsp"/>
+        <action
+            path="/formValidation"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/form-validation.jsp"/>
+        <action
+            path="/login"
+            type="org.apache.struts.actions.ForwardAction"
+            scope="request"
+            parameter="/login/login-form.jsp"/>
+    </action-mappings>
+
+    <!-- controller merge point -->
+
+    <!-- message-resources merge-point -->
+    <message-resources parameter="application-resources" null="false"/>
+
+    <!-- plug-in merge-point -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property property="pathnames" value="/WEB-INF/validation.xml,/WEB-INF/validator-rules.xml"/>
+        <set-property property="stopOnFirstError" value="false"/>
+    </plug-in>
+
+    <plug-in className="org.apache.struts.tiles.TilesPlugin">
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml"/>
+        <set-property property="definitions-parser-validate" value="true"/>
+        <set-property property="moduleAware" value="true"/>
+    </plug-in>
+
+<!--
+  UNCOMMENT TO EXPOSE THE STRUTS-MENU TAGLIB
+
+    <plug-in className="net.sf.navigator.menu.MenuPlugIn">
+        <set-property property="menuConfig" value="/WEB-INF/menu-config.xml"/>
+    </plug-in>
+-->
+</struts-config>

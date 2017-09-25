@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/web-timetabling" docBase="web-timetabling-1.0"
+         debug="99" reloadable="true" antiJARLocking="true" antiResourceLocking="false">
+
+    <Resource name="jdbc/web-timetabling" auth="Container" type="javax.sql.DataSource"
+              maxActive="100" maxIdle="30" maxWait="10000"
+              driverClassName="org.postgresql.Driver"
+              username="timetabling" password="timetabling"
+              url="jdbc:postgresql://localhost/web-timetabling"
+              defaultAutoCommit="false" removeAbandoned="true"
+              removeAbandonedTimeout="60" logAbandoned="true"/>
+</Context>

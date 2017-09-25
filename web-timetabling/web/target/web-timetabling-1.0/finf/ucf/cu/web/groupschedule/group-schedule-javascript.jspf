@@ -1,0 +1,23 @@
+
+    <tiles:put name="javascript" type="string">
+        <script type="text/javascript" src="<html:rewrite action="/calendar"/>"></script>
+        <script type="text/javascript" language="Javascript1.1" src="<html:rewrite action="/formValidation"/>"></script>
+        <html:javascript formName="groupScheduleGroupScheduleBuscarForm" method="validateGroupScheduleBuscarForm" dynamicJavascript="true" staticJavascript="false" htmlComment="true" cdata="false"/>
+    	<script type="text/javascript" language="Javascript1.1" src="<html:rewrite page="/layout/hints.js"/>"></script>
+    	<script type="text/javascript" language="Javascript1.1">
+        //<!--
+            var HINTS_ITEMS = {
+                'group.schedule.group.schedule.buscar.param.mygroup.title':'<formatting:escape language="javascript"><bean:message key="group.schedule.group.schedule.buscar.param.mygroup.title"/></formatting:escape>',
+                'group.schedule.group.schedule.buscar.param.day.title':'<formatting:escape language="javascript"><bean:message key="group.schedule.group.schedule.buscar.param.day.title"/></formatting:escape>',
+                'group.schedule.group.schedule.buscar.param.export.title':'<formatting:escape language="javascript"><bean:message key="group.schedule.group.schedule.buscar.param.export.title"/></formatting:escape>',
+                'Buscar':'<formatting:escape language="javascript"><bean:message key="group.schedule.group.schedule.buscar.title"/></formatting:escape>',
+                'Buscar_no':'<formatting:escape language="javascript"><bean:message key="group.schedule.group.schedule.buscar.title.notallowed"/></formatting:escape>',
+                'Buscar_reset':'<formatting:escape language="javascript"><bean:message key="group.schedule.group.schedule.buscar.title.reset"/></formatting:escape>',
+                'Buscar_noreset':'<formatting:escape language="javascript"><bean:message key="group.schedule.group.schedule.buscar.title.reset.not.allowed"/></formatting:escape>',
+                'calendar.popup':'<formatting:escape language="javascript"><bean:message key="calendar.popup"/></formatting:escape>'
+            };
+
+            var hints = new THints (HINTS_CFG, HINTS_ITEMS);
+        //-->
+    	</script>
+    </tiles:put>

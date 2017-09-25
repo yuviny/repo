@@ -1,0 +1,805 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.lang.System"%>
+<%@page import="finf.ucf.cu.domain.crud.GroupValueObject"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.Date"%>
+<%@page import="finf.ucf.cu.vo.ScheduleGroupVO"%>
+
+<% 	List l = (List)request.getSession().getAttribute("RoomSchedule"); 
+String output = new String();
+ArrayList<ArrayList> htm = new ArrayList<ArrayList>(36);
+
+for(int i=0;i<36;i++){
+	htm.add( new ArrayList<ScheduleGroupVO>(3));        	
+}
+	
+if(l != null){
+    for(int h=0 ; h<l.size() ; h++) {
+            switch(((ScheduleGroupVO)l.get(h)).getDay().getDay()){
+            case 1 :
+                if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==1))
+                   		((ArrayList)htm.get(0)).add(l.get(h));                        		
+                if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==2))
+                  		((ArrayList)htm.get(1)).add(l.get(h));
+                if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==3))
+                   		((ArrayList)htm.get(2)).add(l.get(h));
+                if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==4))
+                   		((ArrayList)htm.get(3)).add(l.get(h));
+                if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==5))
+                   		((ArrayList)htm.get(4)).add(l.get(h));
+                if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==6))
+                   		((ArrayList)htm.get(5)).add(l.get(h));
+                break;
+            case 2 :
+                if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==1))
+            			((ArrayList)htm.get(6)).add(l.get(h));                        		
+ 	            if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==2))
+            			((ArrayList)htm.get(7)).add(l.get(h));
+       		    if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==3))
+            			((ArrayList)htm.get(8)).add(l.get(h));
+            	if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==4))
+            			((ArrayList)htm.get(9)).add(l.get(h));
+            	if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==5))
+            			((ArrayList)htm.get(10)).add(l.get(h));
+            	if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==6))
+            			((ArrayList)htm.get(11)).add(l.get(h));
+                break;
+            case 3 :
+                if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==1))
+            			((ArrayList)htm.get(12)).add(l.get(h));                        		
+           		if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==2))
+            			((ArrayList)htm.get(13)).add(l.get(h));
+        	    if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==3))
+    	        		((ArrayList)htm.get(14)).add(l.get(h));
+	            if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==4))
+	              			((ArrayList)htm.get(15)).add(l.get(h));
+            	if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==5))
+        	   			((ArrayList)htm.get(16)).add(l.get(h));
+    	        if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==6))
+	            		((ArrayList)htm.get(17)).add(l.get(h));
+                break;
+            case 4 :
+                if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==1))
+            			((ArrayList)htm.get(18)).add(l.get(h));                        		
+           		if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==2))
+            			((ArrayList)htm.get(19)).add(l.get(h));
+        	    if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==3))
+    	        		((ArrayList)htm.get(20)).add(l.get(h));
+	            if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==4))
+	              			((ArrayList)htm.get(21)).add(l.get(h));
+            	if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==5))
+        	   			((ArrayList)htm.get(22)).add(l.get(h));
+    	        if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==6))
+	            		((ArrayList)htm.get(23)).add(l.get(h));
+                break;
+            case 5 :
+                if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==1))
+            			((ArrayList)htm.get(24)).add(l.get(h));                        		
+           		if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==2))
+            			((ArrayList)htm.get(25)).add(l.get(h));
+        	    if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==3))
+    	        		((ArrayList)htm.get(26)).add(l.get(h));
+	            if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==4))
+	              			((ArrayList)htm.get(27)).add(l.get(h));
+            	if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==5))
+        	   			((ArrayList)htm.get(28)).add(l.get(h));
+    	        if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==6))
+	            		((ArrayList)htm.get(29)).add(l.get(h));
+                break;
+            case 6 :
+                if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==1))
+            			((ArrayList)htm.get(30)).add(l.get(h));                        		
+           		if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==2))
+            			((ArrayList)htm.get(31)).add(l.get(h));
+        	    if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==3))
+    	        		((ArrayList)htm.get(32)).add(l.get(h));
+	            if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==4))
+	              			((ArrayList)htm.get(33)).add(l.get(h));
+            	if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==5))
+        	   			((ArrayList)htm.get(34)).add(l.get(h));
+    	        if( (((ScheduleGroupVO)l.get(h)).getTime().intValue()==6))
+	            		((ArrayList)htm.get(35)).add(l.get(h));
+                break;
+            }	
+    }		
+}
+%>
+
+<%@page import="java.util.ArrayList"%>
+<link rel="stylesheet" type="text/css" href="group-schedule.css" />
+<div id="polo">
+    <h4><b> <% 
+    		
+               if(l!= null && l.size()!= 0){
+               					            	   					
+                                    out.println("Grupo ");
+                                    out.println(((ScheduleGroupVO)l.get(0)).getRoomName());
+                                    out.println("<br>"); 
+                                    Date monday = new Date();
+                                    Date friday = new Date();
+                                    monday = ((ScheduleGroupVO)l.get(0)).getDay();
+                                    friday = monday;
+                                    
+                                    
+                                  //esto te pone la fecha en la web en el formato q la conocemos aa-mm-dd
+                            		switch(monday.getDay()){
+                    				case 1 :
+                    					{                    						
+                    						out.println("Semana del: " + monday.toString().substring(0, 10));       
+                    						monday.setDate(monday.getDate()+ 4) ;
+                    		                out.println("al: " + monday.toString().substring(0, 10) );
+                    					}
+                    					break;
+                    				
+                    				case 2 :
+                    					{
+                    						monday.setDate(monday.getDate()-1);
+                    						friday.setDate(monday.getDate()+3);
+                    		                out.println("Semana del: " + monday.toString().substring(0, 10));                    		                
+                    		                out.println("al: " + friday.toString().substring(0, 10) );
+                    					}
+                    					break;
+                    					
+                    				case 3 :
+                    				{
+                						monday.setDate(monday.getDate()-2);
+                						friday.setDate(monday.getDate()+2);
+                		                out.println("Semana del: " + monday.toString().substring(0, 10));                    		                
+                		                out.println("al: " + friday.toString().substring(0, 10) );
+                					}
+                    					break;
+                    					
+                    				case 4 :
+                					{
+                						monday.setDate(monday.getDate()-3);
+                						friday.setDate(monday.getDate()+1);
+                		                out.println("Semana del: " + monday.toString().substring(0, 10));                    		                
+                		                out.println("al: " + friday.toString().substring(0, 10) );
+                					}
+                    					break;
+                    					
+                    				case 5 :
+                					{
+                						monday.setDate(monday.getDate()-4);
+                						friday.setDate(monday.getDate()+0);
+                		                out.println("Semana del: " + monday.toString().substring(0, 10));                    		                
+                		                out.println("al: " + friday.toString().substring(0, 10) );
+                					}
+                					break;                    					
+                    				case 6 :
+                					{
+                						monday.setDate(monday.getDate()-5);
+                						friday.setDate(monday.getDate()-1);
+                		                out.println("Semana del: " + monday.toString().substring(0, 10));                    		                
+                		                out.println("al: " + friday.toString().substring(0, 10) );
+                					}
+                    					break;
+                    				}
+               }
+    
+            %> 
+          	</b></h4>
+
+<div id="polo">
+
+<table id="group" border="1" align="center" cellspacing="1" cellpadding="1">
+        <tr>
+            <td id="tatop"></td>
+            <td id="tatop">L</td>
+            <td id="tatop">M</td>
+            <td id="tatop">M</td>
+            <td id="tatop">J</td>
+            <td id="tatop">V</td>   
+            <td id="tatop">S</td>
+        </tr>
+        <tr>
+            <td id="taleft">1</td>
+            <%                      
+            if( ((ArrayList)htm.get(0)).size()>0 ) {
+            		output = "<td>";
+                    for(int i=0 ; i < ((ArrayList)htm.get(0)).size() ; i++) {                    	    
+                     	    output += "<a class=\"info\" href=\"#nogo\"> " + ((ScheduleGroupVO)((ArrayList)htm.get(0)).get(i)).getGroupAbbreviation()	+	
+                     	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(0)).get(i)).getActivityName() 
+                     	    		+ "<br><b>Fecha:</b>" ;
+                            output += String.valueOf( ((ScheduleGroupVO)((ArrayList)htm.get(0)).get(i)).getDay() ).substring(0, 10);
+                            output += "<br><b>Profesor:</b>"; 
+                            output += (((ScheduleGroupVO)((ArrayList)htm.get(0)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(0)).get(i)).getTeacherName() : ""; 
+                            output += "</p></div></a></div>";                             
+                    }
+                    output += "</td>";    
+                    out.println(output);
+              }
+              else{
+                           out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+              }	
+            %>
+            <%if( ((ArrayList)htm.get(6)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(6)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(6)).get(i)).getGroupAbbreviation()	+
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(6)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(6)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(6)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(6)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";                     
+            	}
+                output += "</td>";  
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		} %>
+            <%if( ((ArrayList)htm.get(12)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(12)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(12)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(12)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(12)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(12)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(12)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";                    
+            	}
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}%>
+            <%if( ((ArrayList)htm.get(18)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(18)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(18)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(18)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(18)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(18)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(18)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";                    
+            	}
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}%>
+            <%if( ((ArrayList)htm.get(24)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(24)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(24)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(24)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(24)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(24)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(24)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";                    
+            	}
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}%>
+            <%if( ((ArrayList)htm.get(30)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(30)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(30)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(30)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(30)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(30)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(30)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";                    
+            	}
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}
+            %>	
+        </tr>
+        <tr>
+            <td id="taleft">2</td>
+           <%                      
+            if( ((ArrayList)htm.get(1)).size()>0 ) {
+                    for(int i=0 ; i < ((ArrayList)htm.get(1)).size() ; i++) {
+                     	    output = "<td><a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(1)).get(i)).getGroupAbbreviation()	+	
+                     	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(1)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                            output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(1)).get(i)).getDay()).substring(0, 10);
+                            output += "<br><b>Profesor:</b>"; 
+                            output += (((ScheduleGroupVO)((ArrayList)htm.get(1)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(1)).get(i)).getTeacherName() : ""; 
+                            output += "</p></div></a></div>";
+                    }
+                    output += "</td>"; 
+                    out.println(output);
+              }
+              else{
+                           out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+              }	
+            %>
+            <%if( ((ArrayList)htm.get(7)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(7)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(7)).get(i)).getGroupAbbreviation()	+
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(7)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(7)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(7)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(7)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";       
+                }
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		} %>
+            <%if( ((ArrayList)htm.get(13)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(13)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(13)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(13)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(13)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(13)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(13)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";       
+                }
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}%>
+            <%if( ((ArrayList)htm.get(19)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(19)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(19)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(19)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(19)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(19)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(19)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";       
+                }
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}%>
+            <%if( ((ArrayList)htm.get(25)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(25)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(25)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(25)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(25)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(25)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(25)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";        
+                }
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}%>
+            <%if( ((ArrayList)htm.get(31)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(31)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(31)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(31)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(31)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(31)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(31)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";        
+                }
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}
+            %>
+        </tr>
+        <tr>
+            <td id="taleft">3</td>
+            <%                      
+            if( ((ArrayList)htm.get(2)).size()>0 ) {
+                    for(int i=0 ; i < ((ArrayList)htm.get(2)).size() ; i++) {
+                     	    output = "<td><a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(2)).get(i)).getGroupAbbreviation()	+	
+                     	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(2)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                            output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(2)).get(i)).getDay()).substring(0, 10);
+                            output += "<br><b>Profesor:</b>"; 
+                            output += (((ScheduleGroupVO)((ArrayList)htm.get(2)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(2)).get(i)).getTeacherName() : ""; 
+                            output += "</p></div></a></div>";
+                    }
+                    output += "</td>"; 
+                    out.println(output);
+              }
+              else{
+                           out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+              }	
+            %>
+            <%if( ((ArrayList)htm.get(8)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(8)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(8)).get(i)).getGroupAbbreviation()	+
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(8)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(8)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(8)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(8)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";                    
+            	}
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		} %>
+            <%if( ((ArrayList)htm.get(14)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(14)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(14)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(14)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(14)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(14)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(14)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";                    
+            	}
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}%>
+            <%if( ((ArrayList)htm.get(20)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(20)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(20)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(20)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(20)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(20)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(20)).get(i)).getTeacherName() : ""; 
+                     output += "</p></div></a></div>";                    
+            	}
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}%>
+            <%if( ((ArrayList)htm.get(26)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(26)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(26)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(26)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(26)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(26)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(26)).get(i)).getTeacherName() : ""; 
+                     output += "</p></div></a></div>";                    
+            	}
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}%>
+            <%if( ((ArrayList)htm.get(32)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(32)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(32)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(32)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(32)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(32)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(32)).get(i)).getTeacherName() : ""; 
+                     output += "</p></div></a></div>";                    
+            	}
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}
+            %>
+        </tr>
+        <td colspan="7"> </td>
+        <tr>
+            <td id="taleft">4</td>
+           <%                      
+            if( ((ArrayList)htm.get(3)).size()>0 ) {
+                    for(int i=0 ; i < ((ArrayList)htm.get(3)).size() ; i++) {
+                     	    output = "<td><a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(3)).get(i)).getGroupAbbreviation()	+	
+                     	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(3)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                            output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(3)).get(i)).getDay()).substring(0, 10);
+                            output += "<br><b>Profesor:</b>"; 
+                            output += (((ScheduleGroupVO)((ArrayList)htm.get(3)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(3)).get(i)).getTeacherName() : ""; 
+                            output += "</p></div></a></div>";
+                    }
+                    output += "</td>"; 
+                    out.println(output);
+              }
+              else{
+                           out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+              }	
+            %>
+            <%if( ((ArrayList)htm.get(9)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(9)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(9)).get(i)).getGroupAbbreviation()	+
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(9)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(9)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(9)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(9)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";      
+                }
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		} %>
+            <%if( ((ArrayList)htm.get(15)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(15)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(15)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(15)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(15)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(15)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(15)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";  
+                }
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}%>
+            <%if( ((ArrayList)htm.get(21)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(21)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(21)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(21)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(21)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(21)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(21)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";  
+                }
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}%>
+            <%if( ((ArrayList)htm.get(27)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(27)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(27)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(27)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(27)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(27)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(27)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";    
+                }
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}%>
+            <%if( ((ArrayList)htm.get(33)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(33)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(33)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(33)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(33)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(33)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(33)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";                    
+            	}
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}
+            %></tr>
+        <tr>
+            <td id="taleft">5</td>
+           <%                      
+            if( ((ArrayList)htm.get(4)).size()>0 ) {
+                    for(int i=0 ; i < ((ArrayList)htm.get(4)).size() ; i++) {
+                     	    output = "<td><a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(4)).get(i)).getGroupAbbreviation()	+	
+                     	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(4)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                            output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(4)).get(i)).getDay()).substring(0, 10);
+                            output += "<br><b>Profesor:</b>"; 
+                            output += (((ScheduleGroupVO)((ArrayList)htm.get(4)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(4)).get(i)).getTeacherName() : ""; 
+                            output += "</p></div></a></div>";                    
+            	}
+                output += "</td>"; 
+                out.println(output);
+              }
+              else{
+                           out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+              }	
+            %>
+            <%if( ((ArrayList)htm.get(10)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(10)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(10)).get(i)).getGroupAbbreviation()	+
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(10)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(10)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(10)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(10)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";
+                    }
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		} %>
+            <%if( ((ArrayList)htm.get(16)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(16)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(16)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(16)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(16)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(16)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(16)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";
+                }
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}%>
+            <%if( ((ArrayList)htm.get(21)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(21)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(21)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(21)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(21)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(21)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(21)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";
+                }
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}%>
+            <%if( ((ArrayList)htm.get(28)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(28)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(28)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(28)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(28)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(28)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(28)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";  
+                }
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}%>
+            <%if( ((ArrayList)htm.get(34)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(34)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(34)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(34)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(34)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(34)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(34)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";                    
+            	}
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}
+            %>
+        </tr>
+        <tr>
+            <td id="taleft">6</td>
+           <%                      
+            if( ((ArrayList)htm.get(5)).size()>0 ) {
+                    for(int i=0 ; i < ((ArrayList)htm.get(5)).size() ; i++) {
+                     	    output = "<td><a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(5)).get(i)).getGroupAbbreviation()	+	
+                     	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(5)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                            output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(5)).get(i)).getDay()).substring(0, 10);
+                            output += "<br><b>Profesor:</b>"; 
+                            output += (((ScheduleGroupVO)((ArrayList)htm.get(5)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(5)).get(i)).getTeacherName() : ""; 
+                            output += "</p></div></a></div>";                    
+            	    }
+                output += "</td>"; 
+                out.println(output);
+              }
+              else{
+                           out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+              }	
+            %>
+            <%if( ((ArrayList)htm.get(11)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(11)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(11)).get(i)).getGroupAbbreviation()	+
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(11)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(11)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(11)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(11)).get(i)).getTeacherName() : ""; 
+                     output += "</p></div></a></div>";                    
+            	}
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		} %>
+            <%if( ((ArrayList)htm.get(17)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(17)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(17)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(17)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(17)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(17)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(17)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";                 
+                                     
+            	}
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}%>
+            <%if( ((ArrayList)htm.get(23)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(23)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(23)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(23)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(23)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(23)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(23)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";                    
+            	}
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}%>
+            <%if( ((ArrayList)htm.get(29)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(29)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(29)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(29)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(29)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(29)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(29)).get(i)).getTeacherName() : ""; 
+                     output += "</p></div></a></div>";                    
+            	}
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}%>
+            <%if( ((ArrayList)htm.get(35)).size()>0 ) {
+            	output = "<td>";
+                for(int i=0 ; i < ((ArrayList)htm.get(35)).size() ; i++) {
+             	    output += "<a class=\"info\" href=\"#nogo\">" + ((ScheduleGroupVO)((ArrayList)htm.get(35)).get(i)).getGroupAbbreviation()	+ 
+             	    		"<div class=\"infobox\"><p><b>Actividad:</b>" + ((ScheduleGroupVO)((ArrayList)htm.get(35)).get(i)).getActivityName() + "<br><b>Fecha:</b>" ;
+                    output += String.valueOf(((ScheduleGroupVO)((ArrayList)htm.get(35)).get(i)).getDay()).substring(0, 10);
+                    output += "<br><b>Profesor:</b>"; 
+                    output += (((ScheduleGroupVO)((ArrayList)htm.get(35)).get(i)).getTeacherName() !=  null) ? ((ScheduleGroupVO)((ArrayList)htm.get(35)).get(i)).getTeacherName() : ""; 
+                    output += "</p></div></a></div>";                    
+            	}
+                output += "</td>"; 
+                out.println(output);
+      		}
+      		else{
+                   out.println("<td><a class=\"info\" href=\"#nogo\">___</a></div></td>"); 
+      		}
+            %>
+           </tr>
+    </table>
+</div>

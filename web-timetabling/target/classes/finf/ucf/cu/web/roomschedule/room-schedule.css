@@ -1,0 +1,77 @@
+ #buscar.action {}
+#buscar.action #form_submit {}
+
+#buscar.action .myTeacher {}
+#buscar.action .myTeacher .label {}
+#buscar.action .myTeacher .field {}
+
+@CHARSET "UTF-8";
+
+#bo {
+    }
+    
+#teacher{  
+	text-align: center;
+	width: 250px;
+   border: 1px solid #000;
+}    
+
+.teacher th, #teacher td {
+  border: 1px solid #000;  
+}
+
+#tatop{
+  background-color: #f7f7ff;
+ }
+
+#taleft {background-color: #f7f7ff;}
+
+#teacher tr:hover td:hover {
+  background: #FFFF66;
+}
+
+#polo {
+	z-index: 5;
+}
+
+.info {
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:bold;
+position:relative;
+text-decoration:none;
+font-family:trebuchet ms,verdana,tahoma,arial;
+color:#2277D9;
+
+
+}
+
+.infobox {
+background:#F4F4F4 url(question.gif) no-repeat scroll right bottom;
+border:1px solid #CCCCCC;
+color:#000000;
+display:none ;
+font-weight:normal; 
+height:70px;
+left:0;
+padding-left:10px;
+padding-top:10px;
+position:absolute;
+text-align:left;
+top: 0px;
+right: 0px;
+width:205px;
+font-size: 12px;
+z-index: 20;
+}
+
+.info:hover {
+cursor:default;
+}
+.info:hover .infobox {
+display:block ;
+}
+
+

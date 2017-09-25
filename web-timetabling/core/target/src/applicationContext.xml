@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    <!-- ========================= GENERAL DEFINITIONS ========================= -->
+
+    <!-- Message source for this context, loaded from localized "messages_xx" files -->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename"><value>messages</value></property>
+    </bean>
+
+    <!-- applicationContext merge-point -->
+    <bean id="hibernateMappingLocations" class="org.springframework.beans.factory.config.ListFactoryBean">
+        <property name="sourceList">
+            <list>
+                <!-- applicationContext hibernateMappingLocations merge-point -->
+                <value>classpath:finf/ucf/cu/domain/Teacher.hbm.xml</value>
+                <value>classpath:finf/ucf/cu/domain/Group.hbm.xml</value>
+                <value>classpath:finf/ucf/cu/domain/Subject.hbm.xml</value>
+                <value>classpath:finf/ucf/cu/domain/ClassTime.hbm.xml</value>
+                <value>classpath:finf/ucf/cu/domain/Room.hbm.xml</value>
+                <value>classpath:finf/ucf/cu/domain/Semester.hbm.xml</value>
+                <value>classpath:finf/ucf/cu/domain/Users.hbm.xml</value>
+                <value>classpath:finf/ucf/cu/domain/UserRole.hbm.xml</value>
+                <value>classpath:finf/ucf/cu/domain/ClassType.hbm.xml</value>
+                <value>classpath:finf/ucf/cu/domain/Resource.hbm.xml</value>
+                <value>classpath:finf/ucf/cu/domain/Building.hbm.xml</value>
+                <value>classpath:finf/ucf/cu/domain/NotAvalability.hbm.xml</value>
+                <value>classpath:finf/ucf/cu/domain/P1.hbm.xml</value>
+                <value>classpath:finf/ucf/cu/domain/Activity.hbm.xml</value>
+                <value>classpath:finf/ucf/cu/domain/ImpartitionPlan.hbm.xml</value>
+                <value>classpath:finf/ucf/cu/domain/Department.hbm.xml</value>
+                <value>classpath:finf/ucf/cu/domain/Theme.hbm.xml</value>
+            </list>
+         </property>
+    </bean>
+
+    <bean id="hibernateProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="properties">
+            <props>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+                <prop key="hibernate.default_batch_fetch_size">16</prop>
+                <prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+                <prop key="hibernate.cache.query_cache_factory">org.hibernate.cache.StandardQueryCacheFactory</prop>
+                <!-- applicationContext hibernateProperties merge-point -->
+            </props>
+        </property>
+    </bean>
+
+    <!-- Hibernate SessionFactory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource"><ref bean="dataSource"/></property>
+        <property name="mappingLocations"><ref bean="hibernateMappingLocations"/></property>
+        <property name="hibernateProperties"><ref bean="hibernateProperties"/></property>
+        <!-- applicationContext sessionFactory merge-point -->
+    </bean>
+
+    <!-- The Hibernate interceptor -->
+    <bean id="hibernateInterceptor" class="org.springframework.orm.hibernate3.HibernateInterceptor">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <!-- applicationContext hibernateInterceptor merge-point -->
+    </bean>
+
+    <!-- Teacher Entity Proxy with inner Teacher Entity implementation -->
+    <bean id="teacherDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="finf.ucf.cu.domain.TeacherDaoImpl">
+                <property name="sessionFactory"><ref local="sessionFactory"/></property>
+                <!-- Teacher entity property merge-point -->
+            </bean>
+        </property>
+        <property name="proxyInterfaces">
+            <value>finf.ucf.cu.domain.TeacherDao</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>hibernateInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Group Entity Proxy with inner Group Entity implementation -->
+    <bean id="groupDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="finf.ucf.cu.domain.GroupDaoImpl">
+                <property name="sessionFactory"><ref local="sessionFactory"/></property>
+                <!-- Group entity property merge-point -->
+            </bean>
+        </property>
+        <property name="proxyInterfaces">
+            <value>finf.ucf.cu.domain.GroupDao</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>hibernateInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Subject Entity Proxy with inner Subject Entity implementation -->
+    <bean id="subjectDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="finf.ucf.cu.domain.SubjectDaoImpl">
+                <property name="sessionFactory"><ref local="sessionFactory"/></property>
+                <!-- Subject entity property merge-point -->
+            </bean>
+        </property>
+        <property name="proxyInterfaces">
+            <value>finf.ucf.cu.domain.SubjectDao</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>hibernateInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- ClassTime Entity Proxy with inner ClassTime Entity implementation -->
+    <bean id="classTimeDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="finf.ucf.cu.domain.ClassTimeDaoImpl">
+                <property name="sessionFactory"><ref local="sessionFactory"/></property>
+                <!-- ClassTime entity property merge-point -->
+            </bean>
+        </property>
+        <property name="proxyInterfaces">
+            <value>finf.ucf.cu.domain.ClassTimeDao</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>hibernateInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Room Entity Proxy with inner Room Entity implementation -->
+    <bean id="roomDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="finf.ucf.cu.domain.RoomDaoImpl">
+                <property name="sessionFactory"><ref local="sessionFactory"/></property>
+                <!-- Room entity property merge-point -->
+            </bean>
+        </property>
+        <property name="proxyInterfaces">
+            <value>finf.ucf.cu.domain.RoomDao</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>hibernateInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Semester Entity Proxy with inner Semester Entity implementation -->
+    <bean id="semesterDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="finf.ucf.cu.domain.SemesterDaoImpl">
+                <property name="sessionFactory"><ref local="sessionFactory"/></property>
+                <!-- Semester entity property merge-point -->
+            </bean>
+        </property>
+        <property name="proxyInterfaces">
+            <value>finf.ucf.cu.domain.SemesterDao</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>hibernateInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Users Entity Proxy with inner Users Entity implementation -->
+    <bean id="usersDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="finf.ucf.cu.domain.UsersDaoImpl">
+                <property name="sessionFactory"><ref local="sessionFactory"/></property>
+                <property name="userRoleDao"><ref bean="userRoleDao"/></property>
+                <!-- Users entity property merge-point -->
+            </bean>
+        </property>
+        <property name="proxyInterfaces">
+            <value>finf.ucf.cu.domain.UsersDao</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>hibernateInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- UserRole Entity Proxy with inner UserRole Entity implementation -->
+    <bean id="userRoleDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="finf.ucf.cu.domain.UserRoleDaoImpl">
+                <property name="sessionFactory"><ref local="sessionFactory"/></property>
+                <!-- UserRole entity property merge-point -->
+            </bean>
+        </property>
+        <property name="proxyInterfaces">
+            <value>finf.ucf.cu.domain.UserRoleDao</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>hibernateInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- ClassType Entity Proxy with inner ClassType Entity implementation -->
+    <bean id="classTypeDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="finf.ucf.cu.domain.ClassTypeDaoImpl">
+                <property name="sessionFactory"><ref local="sessionFactory"/></property>
+                <!-- ClassType entity property merge-point -->
+            </bean>
+        </property>
+        <property name="proxyInterfaces">
+            <value>finf.ucf.cu.domain.ClassTypeDao</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>hibernateInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Resource Entity Proxy with inner Resource Entity implementation -->
+    <bean id="resourceDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="finf.ucf.cu.domain.ResourceDaoImpl">
+                <property name="sessionFactory"><ref local="sessionFactory"/></property>
+                <!-- Resource entity property merge-point -->
+            </bean>
+        </property>
+        <property name="proxyInterfaces">
+            <value>finf.ucf.cu.domain.ResourceDao</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>hibernateInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Building Entity Proxy with inner Building Entity implementation -->
+    <bean id="buildingDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="finf.ucf.cu.domain.BuildingDaoImpl">
+                <property name="sessionFactory"><ref local="sessionFactory"/></property>
+                <!-- Building entity property merge-point -->
+            </bean>
+        </property>
+        <property name="proxyInterfaces">
+            <value>finf.ucf.cu.domain.BuildingDao</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>hibernateInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- NotAvalability Entity Proxy with inner NotAvalability Entity implementation -->
+    <bean id="notAvalabilityDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="finf.ucf.cu.domain.NotAvalabilityDaoImpl">
+                <property name="sessionFactory"><ref local="sessionFactory"/></property>
+                <!-- NotAvalability entity property merge-point -->
+            </bean>
+        </property>
+        <property name="proxyInterfaces">
+            <value>finf.ucf.cu.domain.NotAvalabilityDao</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>hibernateInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- P1 Entity Proxy with inner P1 Entity implementation -->
+    <bean id="p1Dao" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="finf.ucf.cu.domain.P1DaoImpl">
+                <property name="sessionFactory"><ref local="sessionFactory"/></property>
+                <!-- P1 entity property merge-point -->
+            </bean>
+        </property>
+        <property name="proxyInterfaces">
+            <value>finf.ucf.cu.domain.P1Dao</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>hibernateInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Activity Entity Proxy with inner Activity Entity implementation -->
+    <bean id="activityDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="finf.ucf.cu.domain.ActivityDaoImpl">
+                <property name="sessionFactory"><ref local="sessionFactory"/></property>
+                <!-- Activity entity property merge-point -->
+            </bean>
+        </property>
+        <property name="proxyInterfaces">
+            <value>finf.ucf.cu.domain.ActivityDao</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>hibernateInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- ImpartitionPlan Entity Proxy with inner ImpartitionPlan Entity implementation -->
+    <bean id="impartitionPlanDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="finf.ucf.cu.domain.ImpartitionPlanDaoImpl">
+                <property name="sessionFactory"><ref local="sessionFactory"/></property>
+                <!-- ImpartitionPlan entity property merge-point -->
+            </bean>
+        </property>
+        <property name="proxyInterfaces">
+            <value>finf.ucf.cu.domain.ImpartitionPlanDao</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>hibernateInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Department Entity Proxy with inner Department Entity implementation -->
+    <bean id="departmentDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="finf.ucf.cu.domain.DepartmentDaoImpl">
+                <property name="sessionFactory"><ref local="sessionFactory"/></property>
+                <!-- Department entity property merge-point -->
+            </bean>
+        </property>
+        <property name="proxyInterfaces">
+            <value>finf.ucf.cu.domain.DepartmentDao</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>hibernateInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Theme Entity Proxy with inner Theme Entity implementation -->
+    <bean id="themeDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="finf.ucf.cu.domain.ThemeDaoImpl">
+                <property name="sessionFactory"><ref local="sessionFactory"/></property>
+                <!-- Theme entity property merge-point -->
+            </bean>
+        </property>
+        <property name="proxyInterfaces">
+            <value>finf.ucf.cu.domain.ThemeDao</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>hibernateInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- ========================= Start of SERVICE DEFINITIONS ========================= -->
+
+    <!-- Service Transactional Interceptor -->
+    <bean id="serviceTransactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+        <property name="transactionManager"><ref bean="transactionManager"/></property>
+        <property name="transactionAttributeSource">
+            <value>
+                finf.ucf.cu.service.GroupScheduleService.getGroupSchedule=PROPAGATION_REQUIRED
+                finf.ucf.cu.service.GroupScheduleService.getTeacherSchedule=PROPAGATION_REQUIRED
+                finf.ucf.cu.service.GroupScheduleService.getRoomSchedule=PROPAGATION_REQUIRED
+                finf.ucf.cu.service.RoomService.findRoomById=PROPAGATION_REQUIRED
+            </value>
+        </property>
+    <!-- applicationContext serviceTransactionInterceptor merge-point -->
+    </bean>
+
+    <!-- GroupScheduleService Service Proxy with inner GroupScheduleService Service Implementation -->
+    <bean id="groupScheduleService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="finf.ucf.cu.service.GroupScheduleServiceImpl">
+                <property name="teacherDao"><ref bean="teacherDao"/></property>
+                <property name="classTimeDao"><ref bean="classTimeDao"/></property>
+                <property name="groupDao"><ref bean="groupDao"/></property>
+                <property name="subjectDao"><ref bean="subjectDao"/></property>
+                <property name="roomDao"><ref bean="roomDao"/></property>
+                <property name="semesterDao"><ref bean="semesterDao"/></property>
+                <property name="classTypeDao"><ref bean="classTypeDao"/></property>
+                <!-- GroupScheduleService service property merge-point -->
+            </bean>
+        </property>
+        <property name="proxyInterfaces">
+            <value>finf.ucf.cu.service.GroupScheduleService</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>serviceTransactionInterceptor</value>
+                <value>hibernateInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- RoomService Service Proxy with inner RoomService Service Implementation -->
+    <bean id="roomService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <bean class="finf.ucf.cu.service.RoomServiceImpl">
+                <property name="roomDao"><ref bean="roomDao"/></property>
+                <!-- RoomService service property merge-point -->
+            </bean>
+        </property>
+        <property name="proxyInterfaces">
+            <value>finf.ucf.cu.service.RoomService</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>serviceTransactionInterceptor</value>
+                <value>hibernateInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- ========================= End of SERVICE DEFINITIONS ========================= -->
+
+</beans>

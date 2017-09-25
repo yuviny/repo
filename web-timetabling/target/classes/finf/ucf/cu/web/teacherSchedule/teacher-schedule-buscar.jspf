@@ -1,0 +1,66 @@
+<%@ include file="/taglib-imports.jspf" %>
+
+<div id="buscar" class="action">
+    <h3><bean:message key="teacher.schedule.teacher.schedule.buscar"/></h3>
+    <div class="trigger">
+        <html:form styleId="teacherScheduleTeacherScheduleBuscarForm" action="/TeacherSchedule/TeacherScheduleBuscar" method="post" onsubmit="return validateTeacherScheduleBuscarForm(this);">
+            <table>
+                <tbody>
+                    <tr class="myTeacher">
+                        <td class="label"><bean:message key="teacher.schedule.teacher.schedule.buscar.param.my.teacher"/></td>
+                        <td class="field">
+                           <c:set var="value" value="${form.myTeacher}"/>
+                           <c:choose>
+                               <c:when test="${!empty form.myTeacherBackingList}">
+                                  <html:select name="form" property="myTeacher" onmouseover="hints.show('teacher.schedule.teacher.schedule.buscar.param.my.teacher.title')" onmouseout="hints.hide()"  styleId="buscarMyTeacher">
+                                      <html:optionsCollection name="form" property="myTeacherBackingList" label="label" value="value"/>
+                                  </html:select>
+                               </c:when>
+                               <c:otherwise>
+                                   <html:select name="form" property="myTeacher" onmouseover="hints.show('teacher.schedule.teacher.schedule.buscar.param.my.teacher.title')" onmouseout="hints.hide()"  styleId="buscarMyTeacher"/>
+                               </c:otherwise>
+                           </c:choose>
+                        </td>
+                    </tr>
+                    <tr class="date">
+                        <td class="label"><bean:message key="teacher.schedule.teacher.schedule.buscar.param.date"/></td>
+                        <td class="field">
+                           <c:set var="value" value="${form.date}"/>
+                           <input type="text" name="date" value="${value}" onmouseover="hints.show('teacher.schedule.teacher.schedule.buscar.param.date.title')" onmouseout="hints.hide()"  id="buscarDate"/>
+                           <html:img page="/layout/calendar/calendar.gif" styleId="buscar_date_trigger" styleClass="calendar" onmouseover="hints.show('calendar.popup')" onmouseout="hints.hide()"/>
+                           <script type="text/javascript">
+                           //<!--
+                               Calendar.setup({
+                                   inputField     :    "buscarDate",
+                                   ifFormat       :    "%d/%m/%Y",
+                                   daFormat       :    "%d/%m/%Y",
+                                   showsTime      :    false,
+                                   button         :    "buscar_date_trigger",
+                                   singleClick    :    true
+                               });
+                           //-->
+                           </script>
+                        </td>
+                    </tr>
+                    <tr class="exportt">
+                        <td class="label"><bean:message key="teacher.schedule.teacher.schedule.buscar.param.exportt"/></td>
+                        <td class="field">
+                           <c:set var="value" value="${form.exportt}"/>
+                           <input type="checkbox" name="exportt" value="on" <c:if test="${value}">checked="checked" </c:if>onmouseover="hints.show('teacher.schedule.teacher.schedule.buscar.param.exportt.title')" onmouseout="hints.hide()"  id="buscarExportt"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                              <html:submit onmouseover="hints.show('Buscar')" onmouseout="hints.hide()" styleId="form_submit">
+                                  <bean:message key="teacher.schedule.teacher.schedule.buscar"/>
+                              </html:submit>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </html:form>
+    </div>
+
+</div>
+
+<br class="clr"/>

@@ -1,0 +1,66 @@
+<%@ include file="/taglib-imports.jspf" %>
+
+<div id="buscar" class="action">
+    <h3><bean:message key="group.schedule.group.schedule.buscar"/></h3>
+    <div class="trigger">
+        <html:form styleId="groupScheduleGroupScheduleBuscarForm" action="/GroupSchedule/GroupScheduleBuscar" method="post" onsubmit="return validateGroupScheduleBuscarForm(this);">
+            <table>
+                <tbody>
+                    <tr class="mygroup">
+                        <td class="label"><bean:message key="group.schedule.group.schedule.buscar.param.mygroup"/></td>
+                        <td class="field">
+                           <c:set var="value" value="${form.mygroup}"/>
+                           <c:choose>
+                               <c:when test="${!empty form.mygroupBackingList}">
+                                  <html:select name="form" property="mygroup" onmouseover="hints.show('group.schedule.group.schedule.buscar.param.mygroup.title')" onmouseout="hints.hide()"  styleId="buscarMygroup">
+                                      <html:optionsCollection name="form" property="mygroupBackingList" label="label" value="value"/>
+                                  </html:select>
+                               </c:when>
+                               <c:otherwise>
+                                   <html:select name="form" property="mygroup" onmouseover="hints.show('group.schedule.group.schedule.buscar.param.mygroup.title')" onmouseout="hints.hide()"  styleId="buscarMygroup"/>
+                               </c:otherwise>
+                           </c:choose>
+                        </td>
+                    </tr>
+                    <tr class="day">
+                        <td class="label"><bean:message key="group.schedule.group.schedule.buscar.param.day"/></td>
+                        <td class="field">
+                           <c:set var="value" value="${form.day}"/>
+                           <input type="text" name="day" value="${value}" onmouseover="hints.show('group.schedule.group.schedule.buscar.param.day.title')" onmouseout="hints.hide()"  id="buscarDay"/>
+                           <html:img page="/layout/calendar/calendar.gif" styleId="buscar_day_trigger" styleClass="calendar" onmouseover="hints.show('calendar.popup')" onmouseout="hints.hide()"/>
+                           <script type="text/javascript">
+                           //<!--
+                               Calendar.setup({
+                                   inputField     :    "buscarDay",
+                                   ifFormat       :    "%d/%m/%Y",
+                                   daFormat       :    "%d/%m/%Y",
+                                   showsTime      :    false,
+                                   button         :    "buscar_day_trigger",
+                                   singleClick    :    true
+                               });
+                           //-->
+                           </script>
+                        </td>
+                    </tr>
+                    <tr class="export">
+                        <td class="label"><bean:message key="group.schedule.group.schedule.buscar.param.export"/></td>
+                        <td class="field">
+                           <c:set var="value" value="${form.export}"/>
+                           <input type="checkbox" name="export" value="on" <c:if test="${value}">checked="checked" </c:if>onmouseover="hints.show('group.schedule.group.schedule.buscar.param.export.title')" onmouseout="hints.hide()"  id="buscarExport"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                              <html:submit onmouseover="hints.show('Buscar')" onmouseout="hints.hide()" styleId="form_submit">
+                                  <bean:message key="group.schedule.group.schedule.buscar"/>
+                              </html:submit>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </html:form>
+    </div>
+
+</div>
+
+<br class="clr"/>

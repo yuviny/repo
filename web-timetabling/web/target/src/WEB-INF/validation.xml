@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE form-validation PUBLIC
+    "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN"
+    "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+
+<form-validation>
+
+    <formset>
+        <form name="groupScheduleGroupScheduleBuscarForm">
+            <field property="day" depends="date">
+                <arg position="0" key="group.schedule.group.schedule.buscar.param.day" />
+                <arg position="1" name="date" key="${var:datePattern}" resource="false"/>
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value><![CDATA[dd/MM/yyyy]]></var-value>
+                </var>
+            </field>
+        </form>
+        <form name="teacherScheduleTeacherScheduleBuscarForm">
+            <field property="date" depends="date">
+                <arg position="0" key="teacher.schedule.teacher.schedule.buscar.param.date" />
+                <arg position="1" name="date" key="${var:datePattern}" resource="false"/>
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value><![CDATA[dd/MM/yyyy]]></var-value>
+                </var>
+            </field>
+        </form>
+        <form name="roomScheduleRoomScheduleBuscarForm">
+            <field property="date" depends="date">
+                <arg position="0" key="room.schedule.room.schedule.buscar.param.date" />
+                <arg position="1" name="date" key="${var:datePattern}" resource="false"/>
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value><![CDATA[dd/MM/yyyy]]></var-value>
+                </var>
+            </field>
+        </form>
+    </formset>
+
+</form-validation>

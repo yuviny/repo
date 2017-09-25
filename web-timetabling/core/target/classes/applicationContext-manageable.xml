@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    <!-- CRUD Service Transactional Interceptor -->
+    <bean id="manageableServiceTransactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+        <property name="transactionManager"><ref bean="transactionManager"/></property>
+        <property name="transactionAttributeSource">
+            <value>
+                finf.ucf.cu.domain.crud.TeacherManageableService.create=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.TeacherManageableService.read=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.TeacherManageableService.readAll=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.TeacherManageableService.readBackingLists=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.TeacherManageableService.update=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.TeacherManageableService.delete=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.GroupManageableService.create=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.GroupManageableService.read=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.GroupManageableService.readAll=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.GroupManageableService.readBackingLists=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.GroupManageableService.update=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.GroupManageableService.delete=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.SubjectManageableService.create=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.SubjectManageableService.read=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.SubjectManageableService.readAll=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.SubjectManageableService.update=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.SubjectManageableService.delete=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ClassTimeManageableService.create=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ClassTimeManageableService.read=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ClassTimeManageableService.readAll=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ClassTimeManageableService.readBackingLists=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ClassTimeManageableService.update=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ClassTimeManageableService.delete=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.RoomManageableService.create=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.RoomManageableService.read=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.RoomManageableService.readAll=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.RoomManageableService.readBackingLists=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.RoomManageableService.update=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.RoomManageableService.delete=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.SemesterManageableService.create=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.SemesterManageableService.read=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.SemesterManageableService.readAll=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.SemesterManageableService.update=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.SemesterManageableService.delete=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ClassTypeManageableService.create=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ClassTypeManageableService.read=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ClassTypeManageableService.readAll=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ClassTypeManageableService.update=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ClassTypeManageableService.delete=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ResourceManageableService.create=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ResourceManageableService.read=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ResourceManageableService.readAll=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ResourceManageableService.update=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ResourceManageableService.delete=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.BuildingManageableService.create=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.BuildingManageableService.read=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.BuildingManageableService.readAll=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.BuildingManageableService.update=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.BuildingManageableService.delete=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.NotAvalabilityManageableService.create=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.NotAvalabilityManageableService.read=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.NotAvalabilityManageableService.readAll=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.NotAvalabilityManageableService.readBackingLists=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.NotAvalabilityManageableService.update=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.NotAvalabilityManageableService.delete=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.P1ManageableService.create=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.P1ManageableService.read=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.P1ManageableService.readAll=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.P1ManageableService.readBackingLists=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.P1ManageableService.update=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.P1ManageableService.delete=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ActivityManageableService.create=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ActivityManageableService.read=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ActivityManageableService.readAll=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ActivityManageableService.readBackingLists=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ActivityManageableService.update=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ActivityManageableService.delete=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ImpartitionPlanManageableService.create=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ImpartitionPlanManageableService.read=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ImpartitionPlanManageableService.readAll=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ImpartitionPlanManageableService.readBackingLists=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ImpartitionPlanManageableService.update=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ImpartitionPlanManageableService.delete=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.DepartmentManageableService.create=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.DepartmentManageableService.read=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.DepartmentManageableService.readAll=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.DepartmentManageableService.readBackingLists=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.DepartmentManageableService.update=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.DepartmentManageableService.delete=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ThemeManageableService.create=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ThemeManageableService.read=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ThemeManageableService.readAll=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ThemeManageableService.readBackingLists=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ThemeManageableService.update=PROPAGATION_REQUIRED
+                finf.ucf.cu.domain.crud.ThemeManageableService.delete=PROPAGATION_REQUIRED
+            </value>
+        </property>
+    </bean>
+
+     <!-- TeacherManageableDao Entity Proxy -->
+     <bean id="TeacherManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="TeacherManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.TeacherManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- TeacherManageableDao Implementation  -->
+    <bean id="TeacherManageableDaoBase" class="finf.ucf.cu.domain.crud.TeacherManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="teacherDao"/></property>
+        <property name="departmentIdDao"><ref bean="departmentDao"/></property>
+    </bean>
+
+    <!-- TeacherManageableService Service Implementation  -->
+    <bean id="TeacherManageableServiceBase" class="finf.ucf.cu.domain.crud.TeacherManageableServiceBase">
+        <property name="dao"><ref local="TeacherManageableDao"/></property>
+    </bean>
+
+    <!-- TeacherManageableService Service Proxy  -->
+    <bean id="TeacherManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="TeacherManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.TeacherManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- GroupManageableDao Entity Proxy -->
+     <bean id="GroupManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="GroupManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.GroupManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- GroupManageableDao Implementation  -->
+    <bean id="GroupManageableDaoBase" class="finf.ucf.cu.domain.crud.GroupManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="groupDao"/></property>
+        <property name="subGroupIdDao"><ref bean="groupDao"/></property>
+    </bean>
+
+    <!-- GroupManageableService Service Implementation  -->
+    <bean id="GroupManageableServiceBase" class="finf.ucf.cu.domain.crud.GroupManageableServiceBase">
+        <property name="dao"><ref local="GroupManageableDao"/></property>
+    </bean>
+
+    <!-- GroupManageableService Service Proxy  -->
+    <bean id="GroupManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="GroupManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.GroupManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- SubjectManageableDao Entity Proxy -->
+     <bean id="SubjectManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="SubjectManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.SubjectManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- SubjectManageableDao Implementation  -->
+    <bean id="SubjectManageableDaoBase" class="finf.ucf.cu.domain.crud.SubjectManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="subjectDao"/></property>
+    </bean>
+
+    <!-- SubjectManageableService Service Implementation  -->
+    <bean id="SubjectManageableServiceBase" class="finf.ucf.cu.domain.crud.SubjectManageableServiceBase">
+        <property name="dao"><ref local="SubjectManageableDao"/></property>
+    </bean>
+
+    <!-- SubjectManageableService Service Proxy  -->
+    <bean id="SubjectManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="SubjectManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.SubjectManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- ClassTimeManageableDao Entity Proxy -->
+     <bean id="ClassTimeManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="ClassTimeManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.ClassTimeManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- ClassTimeManageableDao Implementation  -->
+    <bean id="ClassTimeManageableDaoBase" class="finf.ucf.cu.domain.crud.ClassTimeManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="classTimeDao"/></property>
+        <property name="groupIdDao"><ref bean="groupDao"/></property>
+        <property name="teacherIdDao"><ref bean="teacherDao"/></property>
+        <property name="subjectIdDao"><ref bean="subjectDao"/></property>
+        <property name="roomIdDao"><ref bean="roomDao"/></property>
+        <property name="solutionDao"><ref bean="semesterDao"/></property>
+        <property name="classTypeIDDao"><ref bean="classTypeDao"/></property>
+    </bean>
+
+    <!-- ClassTimeManageableService Service Implementation  -->
+    <bean id="ClassTimeManageableServiceBase" class="finf.ucf.cu.domain.crud.ClassTimeManageableServiceBase">
+        <property name="dao"><ref local="ClassTimeManageableDao"/></property>
+    </bean>
+
+    <!-- ClassTimeManageableService Service Proxy  -->
+    <bean id="ClassTimeManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="ClassTimeManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.ClassTimeManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- RoomManageableDao Entity Proxy -->
+     <bean id="RoomManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="RoomManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.RoomManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- RoomManageableDao Implementation  -->
+    <bean id="RoomManageableDaoBase" class="finf.ucf.cu.domain.crud.RoomManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="roomDao"/></property>
+        <property name="resourcesDao"><ref bean="resourceDao"/></property>
+        <property name="buildingIdDao"><ref bean="buildingDao"/></property>
+    </bean>
+
+    <!-- RoomManageableService Service Implementation  -->
+    <bean id="RoomManageableServiceBase" class="finf.ucf.cu.domain.crud.RoomManageableServiceBase">
+        <property name="dao"><ref local="RoomManageableDao"/></property>
+    </bean>
+
+    <!-- RoomManageableService Service Proxy  -->
+    <bean id="RoomManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="RoomManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.RoomManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- SemesterManageableDao Entity Proxy -->
+     <bean id="SemesterManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="SemesterManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.SemesterManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- SemesterManageableDao Implementation  -->
+    <bean id="SemesterManageableDaoBase" class="finf.ucf.cu.domain.crud.SemesterManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="semesterDao"/></property>
+    </bean>
+
+    <!-- SemesterManageableService Service Implementation  -->
+    <bean id="SemesterManageableServiceBase" class="finf.ucf.cu.domain.crud.SemesterManageableServiceBase">
+        <property name="dao"><ref local="SemesterManageableDao"/></property>
+    </bean>
+
+    <!-- SemesterManageableService Service Proxy  -->
+    <bean id="SemesterManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="SemesterManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.SemesterManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- ClassTypeManageableDao Entity Proxy -->
+     <bean id="ClassTypeManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="ClassTypeManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.ClassTypeManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- ClassTypeManageableDao Implementation  -->
+    <bean id="ClassTypeManageableDaoBase" class="finf.ucf.cu.domain.crud.ClassTypeManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="classTypeDao"/></property>
+    </bean>
+
+    <!-- ClassTypeManageableService Service Implementation  -->
+    <bean id="ClassTypeManageableServiceBase" class="finf.ucf.cu.domain.crud.ClassTypeManageableServiceBase">
+        <property name="dao"><ref local="ClassTypeManageableDao"/></property>
+    </bean>
+
+    <!-- ClassTypeManageableService Service Proxy  -->
+    <bean id="ClassTypeManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="ClassTypeManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.ClassTypeManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- ResourceManageableDao Entity Proxy -->
+     <bean id="ResourceManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="ResourceManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.ResourceManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- ResourceManageableDao Implementation  -->
+    <bean id="ResourceManageableDaoBase" class="finf.ucf.cu.domain.crud.ResourceManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="resourceDao"/></property>
+    </bean>
+
+    <!-- ResourceManageableService Service Implementation  -->
+    <bean id="ResourceManageableServiceBase" class="finf.ucf.cu.domain.crud.ResourceManageableServiceBase">
+        <property name="dao"><ref local="ResourceManageableDao"/></property>
+    </bean>
+
+    <!-- ResourceManageableService Service Proxy  -->
+    <bean id="ResourceManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="ResourceManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.ResourceManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- BuildingManageableDao Entity Proxy -->
+     <bean id="BuildingManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="BuildingManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.BuildingManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- BuildingManageableDao Implementation  -->
+    <bean id="BuildingManageableDaoBase" class="finf.ucf.cu.domain.crud.BuildingManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="buildingDao"/></property>
+    </bean>
+
+    <!-- BuildingManageableService Service Implementation  -->
+    <bean id="BuildingManageableServiceBase" class="finf.ucf.cu.domain.crud.BuildingManageableServiceBase">
+        <property name="dao"><ref local="BuildingManageableDao"/></property>
+    </bean>
+
+    <!-- BuildingManageableService Service Proxy  -->
+    <bean id="BuildingManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="BuildingManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.BuildingManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- NotAvalabilityManageableDao Entity Proxy -->
+     <bean id="NotAvalabilityManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="NotAvalabilityManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.NotAvalabilityManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- NotAvalabilityManageableDao Implementation  -->
+    <bean id="NotAvalabilityManageableDaoBase" class="finf.ucf.cu.domain.crud.NotAvalabilityManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="notAvalabilityDao"/></property>
+        <property name="teacherIdDao"><ref bean="teacherDao"/></property>
+        <property name="groupIdDao"><ref bean="groupDao"/></property>
+        <property name="subjectIdDao"><ref bean="subjectDao"/></property>
+    </bean>
+
+    <!-- NotAvalabilityManageableService Service Implementation  -->
+    <bean id="NotAvalabilityManageableServiceBase" class="finf.ucf.cu.domain.crud.NotAvalabilityManageableServiceBase">
+        <property name="dao"><ref local="NotAvalabilityManageableDao"/></property>
+    </bean>
+
+    <!-- NotAvalabilityManageableService Service Proxy  -->
+    <bean id="NotAvalabilityManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="NotAvalabilityManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.NotAvalabilityManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- P1ManageableDao Entity Proxy -->
+     <bean id="P1ManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="P1ManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.P1ManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- P1ManageableDao Implementation  -->
+    <bean id="P1ManageableDaoBase" class="finf.ucf.cu.domain.crud.P1ManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="p1Dao"/></property>
+        <property name="subjectIdDao"><ref bean="subjectDao"/></property>
+        <property name="teacherDao"><ref bean="teacherDao"/></property>
+    </bean>
+
+    <!-- P1ManageableService Service Implementation  -->
+    <bean id="P1ManageableServiceBase" class="finf.ucf.cu.domain.crud.P1ManageableServiceBase">
+        <property name="dao"><ref local="P1ManageableDao"/></property>
+    </bean>
+
+    <!-- P1ManageableService Service Proxy  -->
+    <bean id="P1ManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="P1ManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.P1ManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- ActivityManageableDao Entity Proxy -->
+     <bean id="ActivityManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="ActivityManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.ActivityManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- ActivityManageableDao Implementation  -->
+    <bean id="ActivityManageableDaoBase" class="finf.ucf.cu.domain.crud.ActivityManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="activityDao"/></property>
+        <property name="classTypeIdDao"><ref bean="classTypeDao"/></property>
+        <property name="resourcesDao"><ref bean="resourceDao"/></property>
+        <property name="themeIdDao"><ref bean="themeDao"/></property>
+    </bean>
+
+    <!-- ActivityManageableService Service Implementation  -->
+    <bean id="ActivityManageableServiceBase" class="finf.ucf.cu.domain.crud.ActivityManageableServiceBase">
+        <property name="dao"><ref local="ActivityManageableDao"/></property>
+    </bean>
+
+    <!-- ActivityManageableService Service Proxy  -->
+    <bean id="ActivityManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="ActivityManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.ActivityManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- ImpartitionPlanManageableDao Entity Proxy -->
+     <bean id="ImpartitionPlanManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="ImpartitionPlanManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.ImpartitionPlanManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- ImpartitionPlanManageableDao Implementation  -->
+    <bean id="ImpartitionPlanManageableDaoBase" class="finf.ucf.cu.domain.crud.ImpartitionPlanManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="impartitionPlanDao"/></property>
+        <property name="subjectIdDao"><ref bean="subjectDao"/></property>
+        <property name="teacherIdDao"><ref bean="teacherDao"/></property>
+        <property name="classTypeIdDao"><ref bean="classTypeDao"/></property>
+        <property name="groupIdDao"><ref bean="groupDao"/></property>
+        <property name="semesterIdDao"><ref bean="semesterDao"/></property>
+    </bean>
+
+    <!-- ImpartitionPlanManageableService Service Implementation  -->
+    <bean id="ImpartitionPlanManageableServiceBase" class="finf.ucf.cu.domain.crud.ImpartitionPlanManageableServiceBase">
+        <property name="dao"><ref local="ImpartitionPlanManageableDao"/></property>
+    </bean>
+
+    <!-- ImpartitionPlanManageableService Service Proxy  -->
+    <bean id="ImpartitionPlanManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="ImpartitionPlanManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.ImpartitionPlanManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- DepartmentManageableDao Entity Proxy -->
+     <bean id="DepartmentManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="DepartmentManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.DepartmentManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- DepartmentManageableDao Implementation  -->
+    <bean id="DepartmentManageableDaoBase" class="finf.ucf.cu.domain.crud.DepartmentManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="departmentDao"/></property>
+        <property name="teacherDao"><ref bean="teacherDao"/></property>
+    </bean>
+
+    <!-- DepartmentManageableService Service Implementation  -->
+    <bean id="DepartmentManageableServiceBase" class="finf.ucf.cu.domain.crud.DepartmentManageableServiceBase">
+        <property name="dao"><ref local="DepartmentManageableDao"/></property>
+    </bean>
+
+    <!-- DepartmentManageableService Service Proxy  -->
+    <bean id="DepartmentManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="DepartmentManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.DepartmentManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+     <!-- ThemeManageableDao Entity Proxy -->
+     <bean id="ThemeManageableDao" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="ThemeManageableDaoBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.ThemeManageableDao</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+    <!-- ThemeManageableDao Implementation  -->
+    <bean id="ThemeManageableDaoBase" class="finf.ucf.cu.domain.crud.ThemeManageableDaoBase">
+        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+        <property name="dao"><ref bean="themeDao"/></property>
+        <property name="punoIdDao"><ref bean="p1Dao"/></property>
+    </bean>
+
+    <!-- ThemeManageableService Service Implementation  -->
+    <bean id="ThemeManageableServiceBase" class="finf.ucf.cu.domain.crud.ThemeManageableServiceBase">
+        <property name="dao"><ref local="ThemeManageableDao"/></property>
+    </bean>
+
+    <!-- ThemeManageableService Service Proxy  -->
+    <bean id="ThemeManageableService" class="org.springframework.aop.framework.ProxyFactoryBean">
+         <property name="target"><ref local="ThemeManageableServiceBase"/></property>
+         <property name="proxyInterfaces">
+             <value>finf.ucf.cu.domain.crud.ThemeManageableService</value>
+         </property>
+         <property name="interceptorNames">
+             <list>
+                 <value>manageableServiceTransactionInterceptor</value>
+                 <value>hibernateInterceptor</value>
+             </list>
+         </property>
+     </bean>
+
+</beans>

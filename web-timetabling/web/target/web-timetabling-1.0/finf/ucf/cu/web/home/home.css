@@ -1,0 +1,57 @@
+.art-postcontent {
+    float: right;
+}
+
+
+.art-content-layout
+{
+  display: table;
+  padding: 0;
+  border: none;
+  width: 800px;
+}
+
+.art-content-layout .art-content-layout
+{
+  width: auto;
+  margin:0;
+}
+
+div.art-content-layout div.art-layout-cell, div.art-content-layout div.art-layout-cell div.art-content-layout div.art-layout-cell
+{
+   display: table-cell;
+}
+
+div.art-layout-cell div.art-layout-cell
+{
+   display: block;
+}
+
+div.art-content-layout-row
+{
+  display: table-row; 
+}
+
+.art-content-layout
+{
+  table-layout: fixed;
+  border-collapse: collapse;
+  background-color: Transparent;
+  border: none !important;
+  padding:0 !important;
+}
+
+.cleared
+{
+  float: none;
+  clear: both;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 1px;
+}
+
+.overview-table-inner 
+{
+    margin:10px;
+}z

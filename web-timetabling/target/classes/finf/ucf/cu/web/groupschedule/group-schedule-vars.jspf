@@ -1,0 +1,5 @@
+<div id="pageVariables">
+    <c:catch>
+        <c:set var="groupSchedule" value="${form.groupSchedule}" scope="request"/>
+    </c:catch>
+</div>

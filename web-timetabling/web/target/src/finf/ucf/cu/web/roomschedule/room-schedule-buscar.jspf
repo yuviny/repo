@@ -1,0 +1,66 @@
+<%@ include file="/taglib-imports.jspf" %>
+
+<div id="buscar" class="action">
+    <h3><bean:message key="room.schedule.room.schedule.buscar"/></h3>
+    <div class="trigger">
+        <html:form styleId="roomScheduleRoomScheduleBuscarForm" action="/RoomSchedule/RoomScheduleBuscar" method="post" onsubmit="return validateRoomScheduleBuscarForm(this);">
+            <table>
+                <tbody>
+                    <tr class="myRoom">
+                        <td class="label"><bean:message key="room.schedule.room.schedule.buscar.param.my.room"/></td>
+                        <td class="field">
+                           <c:set var="value" value="${form.myRoom}"/>
+                           <c:choose>
+                               <c:when test="${!empty form.myRoomBackingList}">
+                                  <html:select name="form" property="myRoom" onmouseover="hints.show('room.schedule.room.schedule.buscar.param.my.room.title')" onmouseout="hints.hide()"  styleId="buscarMyRoom">
+                                      <html:optionsCollection name="form" property="myRoomBackingList" label="label" value="value"/>
+                                  </html:select>
+                               </c:when>
+                               <c:otherwise>
+                                   <html:select name="form" property="myRoom" onmouseover="hints.show('room.schedule.room.schedule.buscar.param.my.room.title')" onmouseout="hints.hide()"  styleId="buscarMyRoom"/>
+                               </c:otherwise>
+                           </c:choose>
+                        </td>
+                    </tr>
+                    <tr class="date">
+                        <td class="label"><bean:message key="room.schedule.room.schedule.buscar.param.date"/></td>
+                        <td class="field">
+                           <c:set var="value" value="${form.date}"/>
+                           <input type="text" name="date" value="${value}" onmouseover="hints.show('room.schedule.room.schedule.buscar.param.date.title')" onmouseout="hints.hide()"  id="buscarDate"/>
+                           <html:img page="/layout/calendar/calendar.gif" styleId="buscar_date_trigger" styleClass="calendar" onmouseover="hints.show('calendar.popup')" onmouseout="hints.hide()"/>
+                           <script type="text/javascript">
+                           //<!--
+                               Calendar.setup({
+                                   inputField     :    "buscarDate",
+                                   ifFormat       :    "%d/%m/%Y",
+                                   daFormat       :    "%d/%m/%Y",
+                                   showsTime      :    false,
+                                   button         :    "buscar_date_trigger",
+                                   singleClick    :    true
+                               });
+                           //-->
+                           </script>
+                        </td>
+                    </tr>
+                    <tr class="exportl">
+                        <td class="label"><bean:message key="room.schedule.room.schedule.buscar.param.exportl"/></td>
+                        <td class="field">
+                           <c:set var="value" value="${form.exportl}"/>
+                           <input type="checkbox" name="exportl" value="on" <c:if test="${value}">checked="checked" </c:if>onmouseover="hints.show('room.schedule.room.schedule.buscar.param.exportl.title')" onmouseout="hints.hide()"  id="buscarExportl"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                              <html:submit onmouseover="hints.show('Buscar')" onmouseout="hints.hide()" styleId="form_submit">
+                                  <bean:message key="room.schedule.room.schedule.buscar"/>
+                              </html:submit>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </html:form>
+    </div>
+
+</div>
+
+<br class="clr"/>
